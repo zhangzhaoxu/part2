@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="bower_components/MultipleDatePicker/dist/multiple-date-picker.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -11,10 +12,15 @@
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/MultipleDatePicker/dist/multipleDatePicker.min.js"></script>
     <script src="public/js/index.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            outline: none;
+        }
+    </style>
 </head>
-<body>
-<div style="width:50%">
-    <multiple-date-picker/>
-</div>
+<body ng-controller="dateCtrl">
+    <md-button  class="md-raised md-primary" ng-click="showDatePicker($event)">选择课程</md-button>
 </body>
 </html>
