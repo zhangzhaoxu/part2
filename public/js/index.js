@@ -10,9 +10,7 @@ app.controller("dateCtrl",function($scope,$mdDialog){
             clickOutsideToClose:true
         })
             .then(function(answer) {
-                $scope.status = 'You said the information was "' + answer + '".';
             }, function() {
-                $scope.status = 'You cancelled the dialog.';
             });
     };
 })
@@ -29,10 +27,27 @@ function DialogController($scope,$mdDialog){
         $mdDialog.hide(answer);
     };
 
+    $scope.select=1;
+    $scope.DayCourse = [];
 
     $scope.logInfos = function(event, date) {
         event.preventDefault();
-        console.log(date);
-        date.selected = !date.selected
+        var TemporaryDate = date._d.getFullYear()+"/"+(date._d.getMonth()+1)+"/"+date._d.getDate();
+        if(date.selected){
+            angular.forEach($scope.DayCourse, function (course, index) {
+                if(course.date == TemporaryDate){
+                    $scope.DayCourse.splice(index,1);
+                    return;
+                }
+            });
+            date.selected = !date.selected;
+        }else{
+            date.selected = !date.selected;
+            $scope.DayCourse.push({
+                date:TemporaryDate,
+                num:$scope.select
+            });
+        }
+        $scope.select = 1;
     }
 }

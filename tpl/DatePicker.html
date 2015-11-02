@@ -16,21 +16,33 @@
                         <multiple-date-picker day-click="logInfos"/>
                     </div>
                     <div flex="25">
-                        sadfasdfasdfasf
+                        <md-content>
+                            <div ng-repeat="course in DayCourse">
+                                <span>{{course.date}}</span>
+                                <span>{{course.num}}</span>
+                            </div>
+                        </md-content>
                     </div>
                 </div>
                 <div>
-                    asdfasdfasdf
+                    <select ng-model="select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
                 </div>
             </div>
         </md-dialog-content>
         <div class="md-actions" layout="row">
             <span flex></span>
             <md-button ng-click="answer('not useful')" >
-                Not Useful
+                Cancel
             </md-button>
             <md-button ng-click="answer('useful')" style="margin-right:20px;" >
-                Useful
+                Save
             </md-button>
         </div>
     </form>
