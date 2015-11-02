@@ -13,26 +13,33 @@
             <div class="md-dialog-content" layout="column" layout-align="space-between start">
                 <div layout="row" layout-align="space-between center">
                     <div flex="65">
-                        <multiple-date-picker day-click="logInfos"/>
+                        <multiple-date-picker day-click="Daychange"  month-changed="MonthChanged"/>
                     </div>
-                    <div flex="25">
+                    <div flex="30">
                         <md-content>
-                            <div ng-repeat="course in DayCourse">
-                                <span>{{course.date}}</span>
-                                <span>{{course.num}}</span>
-                            </div>
+                            <md-chips class="custom-chips" ng-model="DayCourse" readonly="true"
+                                      md-on-append="ctrl.newVeg($chip)">
+                                <md-chip-template>
+                                    <span>
+                                      <strong>{{$chip.date}}</strong>
+                                      <em>({{$chip.num}})节课</em>
+                                    </span>
+                                </md-chip-template>
+                            </md-chips>
                         </md-content>
                     </div>
                 </div>
-                <div>
-                    <select ng-model="select">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
+                <div style="width: 50%;padding-top: 30px">
+                    <md-input-container class="md-block">
+                        <label>先选择课程数量，再选择一天上几节课，默认一节</label>
+                        <md-select  ng-model="select">
+                            <md-option value="1">One</md-option>
+                            <md-option value="2">Two</md-option>
+                            <md-option value="3">Three</md-option>
+                            <md-option value="4">Four</md-option>
+                            <md-option value="5">Five</md-option>
+                        </md-select>
+                    </md-input-container>
                 </div>
             </div>
         </md-dialog-content>
