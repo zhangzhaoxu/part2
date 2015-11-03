@@ -1,4 +1,4 @@
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak style="width: 50%">
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -31,12 +31,12 @@
                 </div>
                 <div style="width: 50%;padding-top: 30px">
                     <md-input-container class="md-block">
-                        <label>先选择课程数量，再选择一天上几节课，默认一节</label>
-                        <md-select  ng-model="select">
+                        <label>请选择一天上几节课，默认一节</label>
+                        <md-select  ng-model="select" ng-change="changeDayCourseNum()">
                             <md-option value="1">One</md-option>
                             <md-option value="2">Two</md-option>
                             <md-option value="3">Three</md-option>
-                            <md-option value="4">Four</md-option>
+                            <md-option value="4">Fo ur</md-option>
                             <md-option value="5">Five</md-option>
                         </md-select>
                     </md-input-container>
